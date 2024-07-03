@@ -1,0 +1,199 @@
+to get information use "man" command 
+man ls , man touch
+
+ls
+
+ls -ltr (command used to get the files in order of which they are created)
+to create file use touch command
+touch first-shell-script.sh
+
+
+
+(difference between vim and touch command) 
+vim command will create and open the file, where as touch will not open the file but just create it (touch is mostly used where we need to create 1000s of files and we should not open that) 
+
+
+#!/bin/ (bash/ksh/sh/dash) executables (this is known as shebangs)
+(always use #!/bin/bash ) as it is mostly used
+
+
+esc + i (for insert mode)
+
+:wq! (for saving the file)
+:q (for close the file)
+cat command is used to print content of the file (cat file_name)
+
+
+
+to run or execute a file we use "./file_name"
+
+
+to grant permissions to files we use "chmod" command
+ch=> change,
+use "chmod w
+
+arguments in chmod 
+1. which root user/administrator has access to file
+2. which group user
+3. what are your permission
+define the permission to the file "chmod 777 file_name"
+"chmod 421 file_name"
+so, in second command root user/admin have permission to read, my group will have permission to write and otheres including me will have permission to execute
+4=> read
+2=> write
+1=> execute
+
+
+ rm -rf folder_name/file_name (remove a folder or file_name)
+ "rm: Command to remove files or directories.
+-rf: Options used together:
+
+    -r: Recursively remove directories and their contents.
+    -f: Force removal without prompting for confirmation.
+    
+    "
+    
+    
+to remove a single file use "rm file_name" command
+ 
+ 
+ 
+ 
+ 
+
+"history" command will be used to know all the commands which we have used till now 
+
+pwd (print working directory)
+
+
+
+comment in shell scripti "# create two files comment"
+
+
+
+
+command to check cpu status (nproc) command
+
+command to check memory of systme (free) command
+
+command to check both the cpu and memory status (top ) command
+
+df displays the amount of disk
+       space available on the file system containing each file name argument.   If  no  file
+       name  is  given,  the space available on all currently mounted file system
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+set -x #debug mod 
+(it is used to print what command it is going to execute)
+
+set -e #exit the script when there is an error (example cmd1 | cmd2 | wrong_cmd => this will be caught as it will only look at the last pipefailure) where as cmd1 | wrong_cmd | cmd2 => this will get by passed as it will only see the last pipe status and here it is not an error )
+
+set -o #will also check for pipefailure cmd1 | wrong_cmd | cmd2 or cmd1 | cmd_2 | wrong_cmd => this will work for both, at any stage if the pipe fails then it will give error and exits the script
+
+
+
+
+ps -ef (it gives all the processes running in a machine)
+
+ps -ef | grep "amazon" (it gives what are the process which processes are running under amazon basically it will checks which have amazon in them)
+| pipe symbol will transfer the output of one command to other command
+
+grep "abc" / grep "abc" file_name (this command is used to find all the values consisting abc in them)
+
+
+" awk -F" " '{print $1}' " #very very simple, suppose there are various values like " abc 1.1 kapil school description" so it will consider it as columns and it will give values accrodingly, like $1 will give abc, $2 will give 1.1 and $3 will give kapil
+date (command will print today's date and time)
+
+
+Important concept....
+date | echo "date is "
+
+output is : date is
+
+reason, every machine has various channels, like stdin, stdout, stderr, and date command will sent output to stdin and echo will not get any input from pipe | command, and therefore it gives only echo value
+
+
+
+
+curl vs wget commands
+curl is used to get the output from urls, or make api calls, it gives the output but does not download files
+
+whereas 
+
+wget command will download the file and then give you the output, then you can pipe this will grep to file the lines which consists the words
+
+
+
+Command to go the root user
+
+"sudo su -"  #this means switch user to root which is hyphen
+"logout" # after login as a root user we logout from root user
+
+su kapil #this means switch to different user 
+
+
+
+
+find command (Very very useful # this is used to find anyfile from a directory)
+"sudo find / -name file_name"
+
+
+
+
+if else and for loops
+
+if else
+
+a=5
+b=6
+if[$a < $b]
+then echo"A is smaller than b"
+else echo"A is greater or equal to b"
+fi
+
+
+for i in {1,100}; do echo $1; done
+
+
+
+trap command(very very important)
+"trap action WHICHSIGNAL" # example trap "echo Don't press control+C" SIGINT  (We can see various type of signals)
+
+
+
+kill a process 
+"kill -9 processid/name"
+
+
+
+
+
+mylearnings
+grep "pattern" > filename.txt (it will create if not exist and it will overwrite the content of file it it exist)
+grep "pattern" >> filename.txt (it will create a file if not exist and it will append the content if it exists)
+
